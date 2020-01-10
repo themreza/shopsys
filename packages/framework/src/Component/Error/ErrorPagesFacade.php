@@ -44,24 +44,32 @@ class ErrorPagesFacade
     protected $errorIdProvider;
 
     /**
+     * @var string
+     */
+    protected $environment;
+
+    /**
      * @param string $errorPagesDir
      * @param \Shopsys\FrameworkBundle\Component\Domain\Domain $domain
      * @param \Shopsys\FrameworkBundle\Component\Router\DomainRouterFactory $domainRouterFactory
      * @param \Symfony\Component\Filesystem\Filesystem $filesystem
      * @param \Shopsys\FrameworkBundle\Component\Error\ErrorIdProvider|null $errorIdProvider
+     * @param string $environment
      */
     public function __construct(
         $errorPagesDir,
         Domain $domain,
         DomainRouterFactory $domainRouterFactory,
         Filesystem $filesystem,
-        ?ErrorIdProvider $errorIdProvider = null
+        ?ErrorIdProvider $errorIdProvider = null,
+        string $environment = EnvironmentType::PRODUCTION
     ) {
         $this->errorPagesDir = $errorPagesDir;
         $this->domain = $domain;
         $this->domainRouterFactory = $domainRouterFactory;
         $this->filesystem = $filesystem;
         $this->errorIdProvider = $errorIdProvider;
+        $this->environment = $environment;
     }
 
     public function generateAllErrorPagesForProduction()
@@ -143,7 +151,7 @@ class ErrorPagesFacade
      */
     protected function getUrlContent($errorPageUrl, $expectedStatusCode)
     {
-        $errorPageKernel = new Kernel(EnvironmentType::PRODUCTION, false);
+        $errorPageKernel = new Kernel($this->environment, false);
 
         $errorPageFakeRequest = Request::create($errorPageUrl);
 
