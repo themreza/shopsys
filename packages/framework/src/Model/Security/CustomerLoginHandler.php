@@ -54,6 +54,8 @@ class CustomerLoginHandler implements AuthenticationSuccessHandlerInterface, Aut
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
+        d('lo');
+
         if ($request->isXmlHttpRequest()) {
             $responseData = [
                 'success' => false,
