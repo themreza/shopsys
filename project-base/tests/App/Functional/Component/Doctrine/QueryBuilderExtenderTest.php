@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\ShopBundle\Functional\Component\Doctrine;
+namespace Tests\App\Functional\Component\Doctrine;
 
+use App\Model\Category\Category;
+use App\Model\Product\Product;
 use Doctrine\ORM\Query\Expr\Join;
 use Shopsys\FrameworkBundle\Component\Doctrine\QueryBuilderExtender;
 use Shopsys\FrameworkBundle\Model\Product\Product as BaseProduct;
-use Shopsys\ShopBundle\Model\Category\Category;
-use Shopsys\ShopBundle\Model\Product\Product;
-use Tests\ShopBundle\Test\FunctionalTestCase;
+use Tests\App\Test\FunctionalTestCase;
 
 class QueryBuilderExtenderTest extends FunctionalTestCase
 {

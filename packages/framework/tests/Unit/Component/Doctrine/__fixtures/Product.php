@@ -21,7 +21,7 @@ class Product extends BaseProduct
      * @param \Shopsys\FrameworkBundle\Model\Product\ProductCategoryDomainFactoryInterface $productCategoryDomainFactory
      * @param \Tests\FrameworkBundle\Unit\Component\Doctrine\__fixtures\Product[]|null $variants
      */
-    protected function __construct(BaseProductData $productData, ProductCategoryDomainFactoryInterface $productCategoryDomainFactory, array $variants = null)
+    protected function __construct(BaseProductData $productData, ProductCategoryDomainFactoryInterface $productCategoryDomainFactory, ?array $variants = null)
     {
         parent::__construct($productData, $productCategoryDomainFactory, $variants);
     }
