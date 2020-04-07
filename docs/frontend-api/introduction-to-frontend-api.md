@@ -15,7 +15,7 @@ In case you want to add the package into an already existing project, you should
 
 ## Configuration
 Frontend API is disabled by default and you need to enable it for each domain for which you want to use it.
-In your `parameters_common.yml` file add new parameter `shopsys.frontend_api.domains` with the array of desired domain IDs.
+In your `parameters_common.yaml` file add new parameter `shopsys.frontend_api.domains` with the array of desired domain IDs.
 ```yaml
 parmeters:
     # ...
@@ -93,7 +93,7 @@ CategoryDecorator:          # Object is named "Category"
                 description: "Ancestor category"
 ```
 
-The `Category` object type in your project in `config/graphql/types/Category.types.yml` is the one will be really used and you can adjust it as you want.
+The `Category` object type in your project in `config/graphql/types/Category.types.yaml` is the one will be really used and you can adjust it as you want.
 For example adding new field to the `Category` could be like:
 ```diff
  Category:
@@ -123,7 +123,7 @@ QueryDecorator:
                 resolve: "@=resolver('categories')"   # Define the resolver responsible for returning the data. See the resolvers section below.
 ```
 
-And specific `Query` type is defined in `config/graphql/types/Query.types.yml`
+And specific `Query` type is defined in `config/graphql/types/Query.types.yaml`
 ```yaml
 Query:
     type: object
@@ -195,7 +195,7 @@ class ProductResolverMap extends ResolverMap
 }
 ```
 
-You  can register `ResolverMap` in `config/packages/shopsys_frontend_api.yml`:
+You  can register `ResolverMap` in `config/packages/shopsys_frontend_api.yaml`:
 
 ```yaml
 overblog_graphql:

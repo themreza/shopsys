@@ -19,7 +19,7 @@ This article describes a quick way to extend your entity and the internals of en
     * keep entity and table annotations
     * you can add new properties and use annotations to configure ORM
 * Add information about the entity extension into the container configuration
-    * add it to the configuration parameter `shopsys.entity_extension.map` placed in `config/parameters_common.yml` file
+    * add it to the configuration parameter `shopsys.entity_extension.map` placed in `config/parameters_common.yaml` file
     * use the parent entity name as a key and the extended entity name as a value
     * eg. `Shopsys\FrameworkBundle\Model\Product\Product: App\Model\Product\Product`
 * Create a new data object in your `src/Model` directory that extends already existing framework entity data
