@@ -84,8 +84,8 @@ class Kernel extends BaseKernel
             $loader->load(__DIR__ . '/../../parameters_monorepo.yml');
         }
 
-        if (file_exists($confDir . '/parameters_version.yml')) {
-            $loader->load($confDir . '/parameters_version.yml');
+        if (file_exists($confDir . '/parameters_version.yaml')) {
+            $loader->load($confDir . '/parameters_version.yaml');
         }
     }
 

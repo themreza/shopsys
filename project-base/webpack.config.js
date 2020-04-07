@@ -67,7 +67,7 @@ Encore
     ]))
 ;
 
-const domainFile = './config/domains.yml';
+const domainFile = './config/domains.yaml';
 const domains = yaml.safeLoad(fs.readFileSync(domainFile, 'utf8'));
 
 domains.domains.forEach((domain) => {
