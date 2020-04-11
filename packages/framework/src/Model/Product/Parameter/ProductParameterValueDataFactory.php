@@ -31,7 +31,7 @@ class ProductParameterValueDataFactory implements ProductParameterValueDataFacto
      */
     public function createFromProductParameterValue(ProductParameterValue $productParameterValue): ProductParameterValueData
     {
-        $productParameterValueData = new ProductParameterValueData();
+        $productParameterValueData = $this->create();
         $this->fillFromProductParameterValue($productParameterValueData, $productParameterValue);
 
         return $productParameterValueData;

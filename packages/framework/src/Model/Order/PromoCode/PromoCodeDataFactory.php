@@ -18,7 +18,7 @@ class PromoCodeDataFactory implements PromoCodeDataFactoryInterface
      */
     public function createFromPromoCode(PromoCode $promoCode): PromoCodeData
     {
-        $promoCodeData = new PromoCodeData();
+        $promoCodeData = $this->create();
         $this->fillFromPromoCode($promoCodeData, $promoCode);
 
         return $promoCodeData;

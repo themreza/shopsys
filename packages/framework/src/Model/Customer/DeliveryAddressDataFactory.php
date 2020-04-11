@@ -18,7 +18,7 @@ class DeliveryAddressDataFactory implements DeliveryAddressDataFactoryInterface
      */
     public function createFromDeliveryAddress(DeliveryAddress $deliveryAddress): DeliveryAddressData
     {
-        $deliveryAddressData = new DeliveryAddressData();
+        $deliveryAddressData = $this->create();
         $this->fillFromDeliveryAddress($deliveryAddressData, $deliveryAddress);
 
         return $deliveryAddressData;

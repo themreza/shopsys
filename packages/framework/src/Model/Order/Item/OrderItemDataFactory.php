@@ -33,7 +33,7 @@ class OrderItemDataFactory implements OrderItemDataFactoryInterface
      */
     public function createFromOrderItem(OrderItem $orderItem): OrderItemData
     {
-        $orderItemData = new OrderItemData();
+        $orderItemData = $this->create();
         $this->fillFromOrderItem($orderItemData, $orderItem);
         $this->addFieldsByOrderItemType($orderItemData, $orderItem);
 

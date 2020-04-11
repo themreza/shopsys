@@ -50,7 +50,7 @@ class AdvertDataFactory implements AdvertDataFactoryInterface
      */
     public function createFromAdvert(Advert $advert): AdvertData
     {
-        $advertData = new AdvertData();
+        $advertData = $this->create();
         $this->fillFromAdvert($advertData, $advert);
         return $advertData;
     }

@@ -19,7 +19,7 @@ class AdministratorRoleDataFactory implements AdministratorRoleDataFactoryInterf
      */
     public function createFromAdministratorRole(AdministratorRole $administratorRole): AdministratorRoleData
     {
-        $administratorRoleData = new AdministratorRoleData();
+        $administratorRoleData = $this->create();
         $this->fillFromAdministratorRole($administratorRoleData, $administratorRole);
 
         return $administratorRoleData;

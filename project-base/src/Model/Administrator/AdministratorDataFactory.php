@@ -24,7 +24,7 @@ class AdministratorDataFactory extends BaseAdministratorDataFactory
      */
     public function createFromAdministrator(BaseAdministrator $administrator): BaseAdministratorData
     {
-        $administratorData = new AdministratorData();
+        $administratorData = $this->create();
         $this->fillFromAdministrator($administratorData, $administrator);
         return $administratorData;
     }

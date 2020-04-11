@@ -24,7 +24,7 @@ class OrderItemDataFactory extends BaseOrderItemDataFactory
      */
     public function createFromOrderItem(BaseOrderItem $orderItem): BaseOrderItemData
     {
-        $orderItemData = new OrderItemData();
+        $orderItemData = $this->create();
         $this->fillFromOrderItem($orderItemData, $orderItem);
         $this->addFieldsByOrderItemType($orderItemData, $orderItem);
 

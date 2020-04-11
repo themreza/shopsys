@@ -24,7 +24,7 @@ class ParameterDataFactory implements ParameterDataFactoryInterface
      */
     public function create(): ParameterData
     {
-        $parameterData = new ParameterData();
+        $parameterData = $this->createInstance();
         $this->fillNew($parameterData);
         return $parameterData;
     }
@@ -45,7 +45,7 @@ class ParameterDataFactory implements ParameterDataFactoryInterface
      */
     public function createFromParameter(Parameter $parameter): ParameterData
     {
-        $parameterData = new ParameterData();
+        $parameterData = $this->createInstance();
         $this->fillFromParameter($parameterData, $parameter);
 
         return $parameterData;
@@ -65,5 +65,13 @@ class ParameterDataFactory implements ParameterDataFactoryInterface
         }
         $parameterData->name = $names;
         $parameterData->visible = $parameter->isVisible();
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Product\Parameter\ParameterData
+     */
+    protected function createInstance(): ParameterData
+    {
+        return new ParameterData();
     }
 }

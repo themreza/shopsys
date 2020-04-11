@@ -24,7 +24,7 @@ class CountryDataFactory implements CountryDataFactoryInterface
      */
     public function create(): CountryData
     {
-        $countryData = new CountryData();
+        $countryData = $this->createInstance();
         $this->fillNew($countryData);
 
         return $countryData;
@@ -36,7 +36,7 @@ class CountryDataFactory implements CountryDataFactoryInterface
      */
     public function createFromCountry(Country $country): CountryData
     {
-        $countryData = new CountryData();
+        $countryData = $this->createInstance();
         $this->fillFromCountry($countryData, $country);
 
         return $countryData;
@@ -77,5 +77,13 @@ class CountryDataFactory implements CountryDataFactoryInterface
         foreach ($this->domain->getAllLocales() as $locale) {
             $countryData->names[$locale] = null;
         }
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Country\CountryData
+     */
+    protected function createInstance(): CountryData
+    {
+        return new CountryData();
     }
 }

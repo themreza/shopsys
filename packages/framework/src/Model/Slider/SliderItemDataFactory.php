@@ -50,7 +50,7 @@ class SliderItemDataFactory implements SliderItemDataFactoryInterface
      */
     public function createFromSliderItem(SliderItem $sliderItem): SliderItemData
     {
-        $sliderItemData = new SliderItemData();
+        $sliderItemData = $this->create();
         $this->fillFromSliderItem($sliderItemData, $sliderItem);
 
         return $sliderItemData;

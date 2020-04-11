@@ -18,7 +18,7 @@ class ParameterValueDataFactory implements ParameterValueDataFactoryInterface
      */
     public function createFromParameterValue(ParameterValue $parameterValue): ParameterValueData
     {
-        $parameterValueData = new ParameterValueData();
+        $parameterValueData = $this->create();
         $this->fillFromParameterValue($parameterValueData, $parameterValue);
 
         return $parameterValueData;

@@ -34,7 +34,7 @@ class OrderDataFactory implements OrderDataFactoryInterface
      */
     public function createFromOrder(Order $order): OrderData
     {
-        $orderData = new OrderData();
+        $orderData = $this->create();
         $this->fillFromOrder($orderData, $order);
 
         return $orderData;

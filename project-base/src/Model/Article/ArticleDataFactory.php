@@ -17,7 +17,7 @@ class ArticleDataFactory extends BaseArticleDataFactory
      */
     public function createFromArticle(BaseArticle $article): BaseArticleData
     {
-        $articleData = new ArticleData();
+        $articleData = $this->create();
         $this->fillFromArticle($articleData, $article);
 
         $articleData->createdAt = $article->getCreatedAt() ?? new DateTime();

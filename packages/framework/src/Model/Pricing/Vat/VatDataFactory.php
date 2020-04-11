@@ -18,7 +18,7 @@ class VatDataFactory implements VatDataFactoryInterface
      */
     public function createFromVat(Vat $vat): VatData
     {
-        $vatData = new VatData();
+        $vatData = $this->create();
         $this->fillFromVat($vatData, $vat);
 
         return $vatData;

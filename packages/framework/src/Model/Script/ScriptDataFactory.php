@@ -18,7 +18,7 @@ class ScriptDataFactory implements ScriptDataFactoryInterface
      */
     public function createFromScript(Script $script): ScriptData
     {
-        $scriptData = new ScriptData();
+        $scriptData = $this->create();
         $this->fillFromScript($scriptData, $script);
 
         return $scriptData;

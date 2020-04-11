@@ -18,7 +18,7 @@ class PricingGroupDataFactory implements PricingGroupDataFactoryInterface
      */
     public function createFromPricingGroup(PricingGroup $pricingGroup): PricingGroupData
     {
-        $pricingGroupData = new PricingGroupData();
+        $pricingGroupData = $this->create();
         $this->fillFromPricingGroup($pricingGroupData, $pricingGroup);
 
         return $pricingGroupData;

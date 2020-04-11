@@ -34,7 +34,7 @@ class BrandDataFactory extends BaseBrandDataFactory
      */
     public function create(): BaseBrandData
     {
-        $brandData = new BrandData();
+        $brandData = $this->createInstance();
         $this->fillNew($brandData);
 
         return $brandData;
@@ -46,9 +46,17 @@ class BrandDataFactory extends BaseBrandDataFactory
      */
     public function createFromBrand(BaseBrand $brand): BaseBrandData
     {
-        $brandData = new BrandData();
+        $brandData = $this->createInstance();
         $this->fillFromBrand($brandData, $brand);
 
         return $brandData;
+    }
+
+    /**
+     * @return \App\Model\Product\Brand\BrandData
+     */
+    protected function createInstance(): BaseBrandData
+    {
+        return new BrandData();
     }
 }

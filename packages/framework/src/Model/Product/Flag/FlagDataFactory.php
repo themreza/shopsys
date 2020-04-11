@@ -24,7 +24,7 @@ class FlagDataFactory implements FlagDataFactoryInterface
      */
     public function create(): FlagData
     {
-        $flagData = new FlagData();
+        $flagData = $this->createInstance();
         $this->fillNew($flagData);
         return $flagData;
     }
@@ -45,7 +45,7 @@ class FlagDataFactory implements FlagDataFactoryInterface
      */
     public function createFromFlag(Flag $flag): FlagData
     {
-        $flagData = new FlagData();
+        $flagData = $this->createInstance();
         $this->fillFromFlag($flagData, $flag);
 
         return $flagData;
@@ -66,5 +66,13 @@ class FlagDataFactory implements FlagDataFactoryInterface
         $flagData->name = $names;
         $flagData->rgbColor = $flag->getRgbColor();
         $flagData->visible = $flag->isVisible();
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Product\Flag\FlagData
+     */
+    protected function createInstance(): FlagData
+    {
+        return new FlagData();
     }
 }

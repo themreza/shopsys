@@ -25,7 +25,7 @@ class MailTemplateDataFactory implements MailTemplateDataFactoryInterface
      */
     public function create(): MailTemplateData
     {
-        $mailTemplateData = new MailTemplateData();
+        $mailTemplateData = $this->createInstance();
         $mailTemplateData->attachments = $this->uploadedFileDataFactory->create();
 
         return $mailTemplateData;
@@ -37,7 +37,7 @@ class MailTemplateDataFactory implements MailTemplateDataFactoryInterface
      */
     public function createFromMailTemplate(MailTemplate $mailTemplate): MailTemplateData
     {
-        $mailTemplateData = new MailTemplateData();
+        $mailTemplateData = $this->createInstance();
         $this->fillFromMailTemplate($mailTemplateData, $mailTemplate);
         $mailTemplateData->attachments = $this->uploadedFileDataFactory->createByEntity($mailTemplate);
 
@@ -78,5 +78,13 @@ class MailTemplateDataFactory implements MailTemplateDataFactoryInterface
         }
 
         return $orderStatusMailTemplatesData;
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Mail\MailTemplateData
+     */
+    protected function createInstance(): MailTemplateData
+    {
+        return new MailTemplateData();
     }
 }

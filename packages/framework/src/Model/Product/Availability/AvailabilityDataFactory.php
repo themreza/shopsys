@@ -45,7 +45,7 @@ class AvailabilityDataFactory implements AvailabilityDataFactoryInterface
      */
     public function createFromAvailability(Availability $availability): AvailabilityData
     {
-        $availabilityData = new AvailabilityData();
+        $availabilityData = $this->create();
         $this->fillFromAvailability($availabilityData, $availability);
 
         return $availabilityData;

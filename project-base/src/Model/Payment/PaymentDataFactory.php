@@ -34,7 +34,7 @@ class PaymentDataFactory extends BasePaymentDataFactory
      */
     public function create(): BasePaymentData
     {
-        $paymentData = new PaymentData();
+        $paymentData = $this->createInstance();
         $this->fillNew($paymentData);
 
         return $paymentData;
@@ -46,9 +46,17 @@ class PaymentDataFactory extends BasePaymentDataFactory
      */
     public function createFromPayment(BasePayment $payment): BasePaymentData
     {
-        $paymentData = new PaymentData();
+        $paymentData = $this->createInstance();
         $this->fillFromPayment($paymentData, $payment);
 
         return $paymentData;
+    }
+
+    /**
+     * @return \App\Model\Payment\PaymentData
+     */
+    protected function createInstance(): BasePaymentData
+    {
+        return new PaymentData();
     }
 }

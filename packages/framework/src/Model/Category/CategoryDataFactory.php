@@ -78,7 +78,7 @@ class CategoryDataFactory implements CategoryDataFactoryInterface
      */
     public function createFromCategory(Category $category): CategoryData
     {
-        $categoryData = new CategoryData();
+        $categoryData = $this->createInstance();
         $this->fillFromCategory($categoryData, $category);
 
         return $categoryData;
@@ -89,7 +89,7 @@ class CategoryDataFactory implements CategoryDataFactoryInterface
      */
     public function create(): CategoryData
     {
-        $categoryData = new CategoryData();
+        $categoryData = $this->createInstance();
         $this->fillNew($categoryData);
 
         return $categoryData;
@@ -135,5 +135,13 @@ class CategoryDataFactory implements CategoryDataFactoryInterface
 
         $categoryData->pluginData = $this->pluginCrudExtensionFacade->getAllData('category', $category->getId());
         $categoryData->image->orderedImages = $this->imageFacade->getImagesByEntityIndexedById($category, null);
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Category\CategoryData
+     */
+    protected function createInstance(): CategoryData
+    {
+        return new CategoryData();
     }
 }

@@ -7,9 +7,17 @@ class PersonalDataAccessRequestDataFactory implements PersonalDataAccessRequestD
     /**
      * @return \Shopsys\FrameworkBundle\Model\PersonalData\PersonalDataAccessRequestData
      */
+    public function create(): PersonalDataAccessRequestData
+    {
+        return new PersonalDataAccessRequestData();
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\PersonalData\PersonalDataAccessRequestData
+     */
     public function createForExport(): PersonalDataAccessRequestData
     {
-        $personalDataAccessRequestData = new PersonalDataAccessRequestData();
+        $personalDataAccessRequestData = $this->create();
         $personalDataAccessRequestData->type = PersonalDataAccessRequest::TYPE_EXPORT;
 
         return $personalDataAccessRequestData;
@@ -20,7 +28,7 @@ class PersonalDataAccessRequestDataFactory implements PersonalDataAccessRequestD
      */
     public function createForDisplay(): PersonalDataAccessRequestData
     {
-        $personalDataAccessRequestData = new PersonalDataAccessRequestData();
+        $personalDataAccessRequestData = $this->create();
         $personalDataAccessRequestData->type = PersonalDataAccessRequest::TYPE_DISPLAY;
 
         return $personalDataAccessRequestData;

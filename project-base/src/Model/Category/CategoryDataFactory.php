@@ -16,7 +16,7 @@ class CategoryDataFactory extends BaseCategoryDataFactory
      */
     public function createFromCategory(BaseCategory $category): BaseCategoryData
     {
-        $categoryData = new CategoryData();
+        $categoryData = $this->createInstance();
         $this->fillFromCategory($categoryData, $category);
 
         return $categoryData;
@@ -27,9 +27,17 @@ class CategoryDataFactory extends BaseCategoryDataFactory
      */
     public function create(): BaseCategoryData
     {
-        $categoryData = new CategoryData();
+        $categoryData = $this->createInstance();
         $this->fillNew($categoryData);
 
         return $categoryData;
+    }
+
+    /**
+     * @return \App\Model\Category\CategoryData
+     */
+    protected function createInstance(): BaseCategoryData
+    {
+        return new CategoryData();
     }
 }

@@ -69,7 +69,7 @@ class PaymentDataFactory implements PaymentDataFactoryInterface
      */
     public function create(): PaymentData
     {
-        $paymentData = new PaymentData();
+        $paymentData = $this->createInstance();
         $this->fillNew($paymentData);
 
         return $paymentData;
@@ -99,7 +99,7 @@ class PaymentDataFactory implements PaymentDataFactoryInterface
      */
     public function createFromPayment(Payment $payment): PaymentData
     {
-        $paymentData = new PaymentData();
+        $paymentData = $this->createInstance();
         $this->fillFromPayment($paymentData, $payment);
 
         return $paymentData;
@@ -139,5 +139,13 @@ class PaymentDataFactory implements PaymentDataFactoryInterface
         }
 
         $paymentData->image->orderedImages = $this->imageFacade->getImagesByEntityIndexedById($payment, null);
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Payment\PaymentData
+     */
+    protected function createInstance(): PaymentData
+    {
+        return new PaymentData();
     }
 }

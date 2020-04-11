@@ -18,7 +18,7 @@ class AdministratorDataFactory implements AdministratorDataFactoryInterface
      */
     public function createFromAdministrator(Administrator $administrator): AdministratorData
     {
-        $administratorData = new AdministratorData();
+        $administratorData = $this->create();
         $this->fillFromAdministrator($administratorData, $administrator);
         return $administratorData;
     }

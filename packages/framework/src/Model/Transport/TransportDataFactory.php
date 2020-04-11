@@ -69,7 +69,7 @@ class TransportDataFactory implements TransportDataFactoryInterface
      */
     public function create(): TransportData
     {
-        $transportData = new TransportData();
+        $transportData = $this->createInstance();
         $this->fillNew($transportData);
 
         return $transportData;
@@ -99,7 +99,7 @@ class TransportDataFactory implements TransportDataFactoryInterface
      */
     public function createFromTransport(Transport $transport): TransportData
     {
-        $transportData = new TransportData();
+        $transportData = $this->createInstance();
         $this->fillFromTransport($transportData, $transport);
 
         return $transportData;
@@ -137,5 +137,13 @@ class TransportDataFactory implements TransportDataFactoryInterface
 
         $transportData->payments = $transport->getPayments();
         $transportData->image->orderedImages = $this->imageFacade->getImagesByEntityIndexedById($transport, null);
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Transport\TransportData
+     */
+    protected function createInstance(): TransportData
+    {
+        return new TransportData();
     }
 }

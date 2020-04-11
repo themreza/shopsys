@@ -24,7 +24,7 @@ class OrderStatusDataFactory implements OrderStatusDataFactoryInterface
      */
     public function create(): OrderStatusData
     {
-        $orderStatusData = new OrderStatusData();
+        $orderStatusData = $this->createInstance();
         $this->fillNew($orderStatusData);
         return $orderStatusData;
     }
@@ -45,7 +45,7 @@ class OrderStatusDataFactory implements OrderStatusDataFactoryInterface
      */
     public function createFromOrderStatus(OrderStatus $orderStatus): OrderStatusData
     {
-        $orderStatusData = new OrderStatusData();
+        $orderStatusData = $this->createInstance();
         $this->fillFromOrderStatus($orderStatusData, $orderStatus);
 
         return $orderStatusData;
@@ -64,5 +64,13 @@ class OrderStatusDataFactory implements OrderStatusDataFactoryInterface
             $names[$translate->getLocale()] = $translate->getName();
         }
         $orderStatusData->name = $names;
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Order\Status\OrderStatusData
+     */
+    protected function createInstance(): OrderStatusData
+    {
+        return new OrderStatusData();
     }
 }

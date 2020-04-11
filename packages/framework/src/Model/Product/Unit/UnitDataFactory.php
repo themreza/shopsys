@@ -24,7 +24,7 @@ class UnitDataFactory implements UnitDataFactoryInterface
      */
     public function create(): UnitData
     {
-        $unitData = new UnitData();
+        $unitData = $this->createInstance();
         $this->fillNew($unitData);
         return $unitData;
     }
@@ -45,7 +45,7 @@ class UnitDataFactory implements UnitDataFactoryInterface
      */
     public function createFromUnit(Unit $unit): UnitData
     {
-        $unitData = new UnitData();
+        $unitData = $this->createInstance();
         $this->fillFromUnit($unitData, $unit);
 
         return $unitData;
@@ -64,5 +64,13 @@ class UnitDataFactory implements UnitDataFactoryInterface
             $names[$translate->getLocale()] = $translate->getName();
         }
         $unitData->name = $names;
+    }
+
+    /**
+     * @return \Shopsys\FrameworkBundle\Model\Product\Unit\UnitData
+     */
+    protected function createInstance(): UnitData
+    {
+        return new UnitData();
     }
 }

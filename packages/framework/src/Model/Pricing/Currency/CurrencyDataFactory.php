@@ -18,7 +18,7 @@ class CurrencyDataFactory implements CurrencyDataFactoryInterface
      */
     public function createFromCurrency(Currency $currency): CurrencyData
     {
-        $currencyData = new CurrencyData();
+        $currencyData = $this->create();
         $this->fillFromCurrency($currencyData, $currency);
 
         return $currencyData;

@@ -24,7 +24,7 @@ class OrderDataFactory extends BaseOrderDataFactory
      */
     public function createFromOrder(BaseOrder $order): BaseOrderData
     {
-        $orderData = new OrderData();
+        $orderData = $this->create();
         $this->fillFromOrder($orderData, $order);
 
         return $orderData;
