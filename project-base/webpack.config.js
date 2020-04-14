@@ -42,14 +42,13 @@ Encore
         beforeRun: () => {
             generateWebFont(
                 'frontend',
-                './assets/public/frontend/svg/*.svg'
+                './assets/public/frontend/svg/'
             );
-            if (sources.isMonorepo()) {
-                generateWebFont(
-                    'admin',
-                    sources.getFrameworkNodeModulesDir() + '/public/svg/**/*.svg'
-                );
-            }
+            generateWebFont(
+                'admin',
+                sources.getFrameworkNodeModulesDir() + '/public/svg/',
+                './web/public/admin/svg/'
+            );
 
             const dirWithJsFiles = [
                 sources.getFrameworkNodeModulesDir() + '/js/**/*.js',
@@ -70,8 +69,7 @@ Encore
     }))
     .addPlugin(new CopyPlugin([
         { from: 'web/bundles/fpjsformvalidator', to: '../../assets/js/bundles/fpjsformvalidator', force: true },
-        { from: 'assets/public', to: '../../web/public', force: true },
-        { from: 'node_modules/@shopsys/framework/public/svg/admin', to: '../../web/public/admin/svg', force: true }
+        { from: 'assets/public', to: '../../web/public', force: true }
     ]))
 ;
 
