@@ -44,10 +44,12 @@ Encore
                 'frontend',
                 './assets/public/frontend/svg/*.svg'
             );
-            generateWebFont(
-                'admin',
-                './assets/public/admin/svg/*.svg'
-            );
+            if (sources.isMonorepo()) {
+                generateWebFont(
+                    'admin',
+                    sources.getFrameworkNodeModulesDir() + '/public/svg/**/*.svg'
+                );
+            }
 
             const dirWithJsFiles = [
                 sources.getFrameworkNodeModulesDir() + '/js/**/*.js',
