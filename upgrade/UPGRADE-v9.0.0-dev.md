@@ -1428,11 +1428,11 @@ There you can find links to upgrade notes for other versions too.
     - see #project-base-diff to update your project
     - move content from `src/resources/styles/front` to `assets/styles/frontend`
     - move content from `src/resources/styles/admin` to `assets/styles/admin`
-    - move content from `src/resources/svg` to `assets/styles/frontend/svg`
+    - move content from `src/resources/svg` to `assets/public/frontend/svg`
     - move content from `web/assets/frontend/fonts` to `assets/public/frontend/fonts`
     - move content from `web/assets/frontend/images` to `assets/public/frontend/images`
-    - move content from `web/assets/admin/fonts` to `assets/public/frontend/fonts`
-    - move content from `web/assets/admin/images` to `assets/public/frontend/images`
+    - move content from `web/assets/admin/fonts` to `assets/public/admin/fonts`
+    - move content from `web/assets/admin/images` to `assets/public/admin/images`
     - move content from `web/assets/styleguide/images` to `assets/public/styleguide/images`
     - you should remove the `grunt` target from your `build.xml` file
     - add `styles_directory` into your domains config (you can get inspired in [project-base/config/domains.yml  ](https://github.com/shopsys/shopsys/blob/master/project-base/config/domains.yml))
