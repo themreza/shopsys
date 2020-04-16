@@ -84,4 +84,12 @@ class CustomerUserRefreshTokenChainFacade
 
         return null;
     }
+
+    /**
+     * @param string $deviceId
+     */
+    public function removeCustomerUserRefreshTokenChainsByDeviceId(string $deviceId): void
+    {
+        $this->customerUserRefreshTokenChainRepository->removeCustomerUserRefreshTokenChainsByDeviceId($deviceId);
+    }
 }

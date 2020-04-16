@@ -29,8 +29,6 @@ class TokenFacade
 
     protected const REFRESH_TOKEN_EXPIRATION = 3600 * 24 * 14;
 
-    protected const CLAIM_DEVICE_ID = 'deviceId';
-
     /**
      * @var \Shopsys\FrameworkBundle\Component\Domain\Domain
      */
@@ -70,7 +68,7 @@ class TokenFacade
     {
         $tokenBuilder = $this->getTokenBuilderWithExpiration(static::ACCESS_TOKEN_EXPIRATION);
 
-        $tokenBuilder->withClaim(static::CLAIM_DEVICE_ID, $deviceId);
+        $tokenBuilder->withClaim(FrontendApiUser::CLAIM_DEVICE_ID, $deviceId);
         foreach (TokenCustomerUserTransformer::transform($customerUser) as $key => $value) {
             $tokenBuilder->withClaim($key, $value);
         }

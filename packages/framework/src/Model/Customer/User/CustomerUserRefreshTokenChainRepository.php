@@ -38,4 +38,17 @@ class CustomerUserRefreshTokenChainRepository
     {
         return $this->getCustomerUserRefreshTokenChainRepository()->findBy(['customerUser' => $customerUser]);
     }
+
+    /**
+     * @param string $deviceId
+     */
+    public function removeCustomerUserRefreshTokenChainsByDeviceId(string $deviceId): void
+    {
+        $this->em->createQueryBuilder()
+            ->delete(CustomerUserRefreshTokenChain::class, 'curtch')
+            ->where('curtch.deviceId = :deviceId')
+            ->setParameter('deviceId', $deviceId)
+            ->getQuery()
+            ->execute();
+    }
 }
